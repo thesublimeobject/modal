@@ -1,6 +1,6 @@
 {
   "name": "kbd-modal",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "a javascript module for modal windows",
   "main": "md.coffee",
   "scripts": {
@@ -19,7 +19,7 @@
       "type": "MIT",
       "url": "https://github.com/brentertz/scapegoat/blob/master/LICENSE-MIT"
     }
-  ]
+  ],
   "bugs": {
     "url": "https://github.com/thesublimeobject/modal/issues"
   },
@@ -31,6 +31,7 @@
     "gulp-util": "^3.0.2"
   },
   "dependencies": {
-    "classie": "^0.1.0"
+    "classie": "^0.1.0",
+    "path": "^0.11.14"
   }
 }

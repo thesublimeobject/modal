@@ -27,7 +27,6 @@
 	z-index: 9999;
 	opacity: 0;
 	background: rgba(255,255,255,0.8);
-	@extend .transition;
 	position: fixed;
 	overflow: auto;
 	overflow-x: hidden;
@@ -44,7 +43,6 @@
 
 .md-effect .md-content {
 	opacity: 0;
-	@extend .transition;
 }
 
 .md-show.md-effect .md-content {
@@ -53,13 +51,11 @@
 }
 
 .md-content {
-	@include span-columns(24,24);
+	width: 100%;
+	display: inline-block;
+	float: left;
 	background: #fff;
 	padding: 2rem;
-	@include at-breakpoint($at-640) {
-		padding: 1.5rem;
-		overflow: scroll;
-	}
 }
 
 .md-close {
@@ -73,7 +69,7 @@
 	&::before, &::after {
 		content: '';
 		position: absolute;
-		background: $text;
+		background: #333;
 		width: 1.5rem;
 		height: 1px;
 		display: block;

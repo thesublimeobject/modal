@@ -3,6 +3,7 @@
 #*--------------------------------------------------------#
 
 classie = require 'classie'
+path = require 'path'
 
 class Modal
 
@@ -128,4 +129,18 @@ class Modal
 			return
 		return
 
-module.exports = Modal
+
+includePaths = ->
+	modalPaths = path.join(__dirname, 'styl');
+	modalPaths
+
+module.exports = {
+	Modal
+
+	includePaths: includePaths()
+
+	with: ->
+		paths  = Array.prototype.slice.call(arguments)
+		result = [].concat.apply(includePaths(), paths)
+		result
+}

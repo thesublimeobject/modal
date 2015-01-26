@@ -1,6 +1,8 @@
-var Modal, classie;
+var Modal, classie, includePaths, path;
 
 classie = require('classie');
+
+path = require('path');
 
 Modal = (function() {
   function Modal(trigger, windows, close) {
@@ -139,4 +141,19 @@ Modal = (function() {
 
 })();
 
-module.exports = Modal;
+includePaths = function() {
+  var modalPaths;
+  modalPaths = path.join(__dirname, 'styl');
+  return modalPaths;
+};
+
+module.exports = {
+  Modal: Modal,
+  includePaths: includePaths(),
+  "with": function() {
+    var paths, result;
+    paths = Array.prototype.slice.call(arguments);
+    result = [].concat.apply(includePaths(), paths);
+    return result;
+  }
+};
