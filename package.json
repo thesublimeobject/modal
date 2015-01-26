@@ -1,0 +1,36 @@
+{
+  "name": "kbd-modal",
+  "version": "1.0.0",
+  "description": "a javascript module for modal windows",
+  "main": "md.coffee",
+  "scripts": {
+    "test": "echo \"test\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thesublimeobject/modal"
+  },
+  "keywords": [
+    "modal"
+  ],
+  "author": "hunter b rose",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/brentertz/scapegoat/blob/master/LICENSE-MIT"
+    }
+  ]
+  "bugs": {
+    "url": "https://github.com/thesublimeobject/modal/issues"
+  },
+  "homepage": "https://github.com/thesublimeobject/modal",
+  "devDependencies": {
+    "coffee-script": "^1.8.0",
+    "gulp": "^3.8.10",
+    "gulp-coffee": "^2.2.0",
+    "gulp-util": "^3.0.2"
+  },
+  "dependencies": {
+    "classie": "^0.1.0"
+  }
+}
