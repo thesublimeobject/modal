@@ -1,6 +1,6 @@
 {
   "name": "kbd-modal",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "a javascript module for modal windows",
   "main": "md.coffee",
   "scripts": {
