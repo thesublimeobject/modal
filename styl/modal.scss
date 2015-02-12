@@ -1,23 +1,27 @@
 .md-modal {
 	position: fixed;
-	transform: translate(-50%,-50%);
+	transform: translate(-50%,-30%);
 	left: 50%;
 	top: 50%;
 	max-width: 48rem;
 	width: 95%;
-	opacity: 0.99;
-	z-index: 99999999999;
+	opacity: 0;
+	z-index: 999999;
 	visibility: hidden;
-	iframe {
+	transition: all 0.25s ease;
+	&.md-visible {
+		transform: translate(-50%,-50%);
+		opacity: 1;
+	}
+	iframe, object, embed {
 		display: none;
 	}
-}
-
-.md-show {
-	visibility: visible;
-	iframe, object, embed {
-		display: block;
-		margin: 0 auto;
+	&.md-visible {
+		visibility: visible;
+		iframe, object, embed {
+			display: block;
+			margin: 0 auto;
+		}
 	}
 }
  
@@ -34,20 +38,11 @@
 	right: 0;
 	bottom: 0;
 	left: 0;
-}
- 
-.md-overlay.overlay-active {
-	opacity: 1;
-	visibility: visible;
-}
-
-.md-effect .md-content {
-	opacity: 0;
-}
-
-.md-show.md-effect .md-content {
-	transform: translateY(0);
-	opacity: 1;
+	transition: all 0.15s ease-in;
+	&.overlay-active {
+		opacity: 1;
+		visibility: visible;
+	}
 }
 
 .md-content {
@@ -84,4 +79,3 @@
 		top: 0.75rem;
 	}
 }
-

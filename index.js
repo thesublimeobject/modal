@@ -52,7 +52,7 @@ Modal = (function() {
     }
     data = target.getAttribute('data-modal');
     modal = document.getElementById(data);
-    classie.add(modal, 'md-show');
+    classie.add(modal, 'md-visible');
     if (modal.querySelector('iframe') !== null) {
       this.autoplay(modal);
     }
@@ -66,8 +66,8 @@ Modal = (function() {
     }
     [].forEach.call(this.windows, function(el) {
       var src, srcArray, video;
-      if (classie.has(el, 'md-show')) {
-        classie.remove(el, 'md-show');
+      if (classie.has(el, 'md-visible')) {
+        classie.remove(el, 'md-visible');
         video = el.querySelector('iframe') !== null ? el.querySelector('iframe') : false;
         if (video) {
           src = video.getAttribute('src');
@@ -114,27 +114,41 @@ Modal = (function() {
     classie.remove(mdShow, 'md-lg');
   };
 
-  Modal.prototype.init = function() {
-    var _this;
+  Modal.prototype.eventListeners = function() {
+    var el, _fn, _fn1, _i, _j, _len, _len1, _ref, _ref1, _this;
     _this = this;
-    this.appendOverlay();
-    this.updateOverlay();
-    [].forEach.call(this.trigger, function(el) {
+    _ref = this.trigger;
+    _fn = function(el) {
       el.addEventListener('click', function(event) {
         _this.mdOpen.call(_this, event, event.target);
         _this.setModalPosition.call(el);
       });
-    });
-    [].forEach.call(this.close, function(el) {
+    };
+    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+      el = _ref[_i];
+      _fn(el);
+    }
+    _ref1 = this.close;
+    _fn1 = function(el) {
       el.addEventListener('click', function(event) {
         _this.mdClose.call(_this, event);
         _this.removeModalStyle();
       });
-    });
+    };
+    for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+      el = _ref1[_j];
+      _fn1(el);
+    }
     this.overlay.addEventListener('click', function(event) {
       _this.mdClose.call(_this, event);
       _this.removeModalStyle();
     });
+  };
+
+  Modal.prototype.init = function() {
+    this.appendOverlay();
+    this.updateOverlay();
+    this.eventListeners();
   };
 
   return Modal;

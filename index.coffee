@@ -50,7 +50,7 @@ class Modal
 			target = @closest(target, '.md-trigger')
 		data = target.getAttribute 'data-modal'
 		modal = document.getElementById(data)
-		classie.add(modal, 'md-show')
+		classie.add(modal, 'md-visible')
 		if modal.querySelector('iframe') isnt null
 			@autoplay(modal)
 		classie.add(@overlay, 'overlay-active')
@@ -63,8 +63,8 @@ class Modal
 			classie.remove(@overlay, 'overlay-active')
 
 		[].forEach.call @windows, (el) ->
-			if classie.has(el, 'md-show')
-				classie.remove(el, 'md-show')
+			if classie.has(el, 'md-visible')
+				classie.remove(el, 'md-visible')
 
 				video = if el.querySelector('iframe') isnt null then el.querySelector('iframe') else false
 
@@ -107,26 +107,36 @@ class Modal
 		classie.remove(mdShow, 'md-lg')
 		return
 
-	init: ->
+	eventListeners: ->
 		_this = @
-		@appendOverlay()
-		@updateOverlay()
-		[].forEach.call @trigger, (el) ->
-			el.addEventListener 'click', (event) ->
-				_this.mdOpen.call(_this, event, event.target)
-				_this.setModalPosition.call(el)
+
+		for el in @trigger
+			do (el) ->
+				el.addEventListener 'click', (event) ->
+					_this.mdOpen.call(_this, event, event.target)
+					_this.setModalPosition.call(el)
+					return
 				return
-			return
-		[].forEach.call @close, (el) ->
-			el.addEventListener 'click', (event) ->
-				_this.mdClose.call(_this, event)
-				_this.removeModalStyle()
+
+		for el in @close
+			do (el) ->
+				el.addEventListener 'click', (event) ->
+					_this.mdClose.call(_this, event)
+					_this.removeModalStyle()
+					return
 				return
-			return
+
 		@overlay.addEventListener 'click', (event) ->
 			_this.mdClose.call(_this, event)
 			_this.removeModalStyle()
 			return
+
+		return
+
+	init: ->
+		@appendOverlay()
+		@updateOverlay()
+		@eventListeners()
 		return
 
 
