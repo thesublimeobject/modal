@@ -28,3 +28,18 @@ An example:
 	<div class="md-close"></div>
 </div>
 ```
+
+To include the .scss file in your project, you can use something like the following structure:
+
+```javascript
+gulp         = require('gulp')
+sass         = require('gulp-sass')
+modal		 = require('kbd-modal').includePaths
+
+gulp.task 'sass', ->
+	return gulp.src('screen.scss')
+		.pipe(sass
+			includePaths: ['sass'].concat(modal)
+		)
+		.pipe(gulp.dest(config.dest))
+```
