@@ -112,18 +112,18 @@ class Modal
 		@appendOverlay()
 		@updateOverlay()
 		[].forEach.call @trigger, (el) ->
-			el.addEventListener 'click', ->
+			el.addEventListener 'click', (event) ->
 				_this.mdOpen.call(_this, event, event.target)
 				_this.setModalPosition.call(el)
 				return
 			return
 		[].forEach.call @close, (el) ->
-			el.addEventListener 'click', ->
+			el.addEventListener 'click', (event) ->
 				_this.mdClose.call(_this, event)
 				_this.removeModalStyle()
 				return
 			return
-		@overlay.addEventListener 'click', ->
+		@overlay.addEventListener 'click', (event) ->
 			_this.mdClose.call(_this, event)
 			_this.removeModalStyle()
 			return

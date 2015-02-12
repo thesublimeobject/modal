@@ -120,18 +120,18 @@ Modal = (function() {
     this.appendOverlay();
     this.updateOverlay();
     [].forEach.call(this.trigger, function(el) {
-      el.addEventListener('click', function() {
+      el.addEventListener('click', function(event) {
         _this.mdOpen.call(_this, event, event.target);
         _this.setModalPosition.call(el);
       });
     });
     [].forEach.call(this.close, function(el) {
-      el.addEventListener('click', function() {
+      el.addEventListener('click', function(event) {
         _this.mdClose.call(_this, event);
         _this.removeModalStyle();
       });
     });
-    this.overlay.addEventListener('click', function() {
+    this.overlay.addEventListener('click', function(event) {
       _this.mdClose.call(_this, event);
       _this.removeModalStyle();
     });
