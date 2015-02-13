@@ -44,7 +44,6 @@ gulp.task 'sass', ->
 		.pipe(gulp.dest(config.dest))
 ```
 
-###
-Videos
+### Videos
 
 If the modal contains a video, it is set to autoplay when the modal is displayed and to stop the video when the modal is closed.
