@@ -21,7 +21,7 @@ An example:
 ```
 
 ```
-<div class="md-modal md-effect" id="md-identifier">
+<div class="md-modal" id="md-identifier">
 	<div class="md-content">
 		-- Modal Content --
 	</div>
