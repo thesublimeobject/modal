@@ -1,5 +1,5 @@
 # KBD Modal
-a javascript module for modal windows
+a plain javascript module for modal windows
 
 ## Install
 `npm install kbd-modal`
@@ -43,3 +43,8 @@ gulp.task 'sass', ->
 		)
 		.pipe(gulp.dest(config.dest))
 ```
+
+###
+Videos
+
+If the modal contains a video, it is set to autoplay when the modal is displayed and to stop the video when the modal is closed.
