@@ -102,7 +102,7 @@ class Modal
 			return false
 
 	removeModalStyle: ->
-		for w in windows
+		for w in @windows
 			do (w) ->
 				if classie.has(w, 'md-lg')
 					w.style.top = 0

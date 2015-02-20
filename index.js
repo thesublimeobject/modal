@@ -108,10 +108,11 @@ Modal = (function() {
   };
 
   Modal.prototype.removeModalStyle = function() {
-    var w, _i, _len, _results;
+    var w, _i, _len, _ref, _results;
+    _ref = this.windows;
     _results = [];
-    for (_i = 0, _len = windows.length; _i < _len; _i++) {
-      w = windows[_i];
+    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+      w = _ref[_i];
       _results.push((function(w) {
         if (classie.has(w, 'md-lg')) {
           w.style.top = 0;
