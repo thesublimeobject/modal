@@ -9,19 +9,21 @@
 	z-index: 999999;
 	visibility: hidden;
 	transition: all 0.25s ease;
-	&.md-visible {
-		transform: translate(-50%,-50%);
-		opacity: 1;
-	}
 	iframe, object, embed {
 		display: none;
 	}
 	&.md-visible {
 		visibility: visible;
+		transform: translate(-50%,-50%);
+		opacity: 1;
 		iframe, object, embed {
 			display: block;
 			margin: 0 auto;
 		}
+	}
+	&.md-lg {
+		transform: translate(-50%, 0);
+		position: absolute;
 	}
 }
  
