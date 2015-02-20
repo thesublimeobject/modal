@@ -102,10 +102,12 @@ class Modal
 			return false
 
 	removeModalStyle: ->
-		mdShow = document.getElementsByClassName('md-lg')[0]
-		mdShow.style.top = 0
-		classie.remove(mdShow, 'md-lg')
-		return
+		for w in windows
+			do (w) ->
+				if classie.has(w, 'md-lg')
+					w.style.top = 0
+					classie.remove(mdShow, 'md-lg')
+					return
 
 	eventListeners: ->
 		_this = @

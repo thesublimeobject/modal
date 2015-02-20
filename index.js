@@ -108,10 +108,18 @@ Modal = (function() {
   };
 
   Modal.prototype.removeModalStyle = function() {
-    var mdShow;
-    mdShow = document.getElementsByClassName('md-lg')[0];
-    mdShow.style.top = 0;
-    classie.remove(mdShow, 'md-lg');
+    var w, _i, _len, _results;
+    _results = [];
+    for (_i = 0, _len = windows.length; _i < _len; _i++) {
+      w = windows[_i];
+      _results.push((function(w) {
+        if (classie.has(w, 'md-lg')) {
+          w.style.top = 0;
+          classie.remove(mdShow, 'md-lg');
+        }
+      })(w));
+    }
+    return _results;
   };
 
   Modal.prototype.eventListeners = function() {
